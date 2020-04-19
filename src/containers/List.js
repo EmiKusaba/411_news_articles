@@ -11,10 +11,9 @@ const mapStateToProps = (state) => {
 // write mapDispatchToProps below
 const mapDispatchToProps = dispatch => {
     return {
-      fetchArticles: (articles) => dispatch(fetchArticles(articles))
+        fetchArticles: () => dispatch(fetchArticles())
     };
-  };
-  componentDidMount()
+};
 
 // add mapDispatchToProps instead of null
 export default connect(mapStateToProps, mapDispatchToProps)(List)

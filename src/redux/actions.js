@@ -1,12 +1,12 @@
 // use fetch with the url parameter
 const url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=306a3a071f224f729829308fa9f5896a'
 
-// const articleAction = (articles) => {
-//     return {
-//         type: 'FETCH_ARTICLES',
-//         value: articles
-//     }
-// }
+const articleAction = (articles) => {
+    return {
+        type: 'FETCH_ARTICLES',
+        value: articles
+    }
+}
 
 export const fetchArticles = () => {
     // return a function that calls fetch and dispatches "articleAction()"
@@ -15,11 +15,7 @@ export const fetchArticles = () => {
         fetch(url)
             .then(res => res.json())
             .then(response => {
-                const action = {
-                    type: 'FETCH_ARTICLES',
-                    value: response.articles
-                }
-                dispatch(action)
-            })
+                dispatch(articleAction(response.articles));
+            });
     }
 }
